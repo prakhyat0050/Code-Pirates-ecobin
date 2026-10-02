@@ -1,0 +1,3 @@
+[functions.gemini-classify]
+verify_jwt = false
+entrypoint = "./functions/gemini-classify/index.ts"
