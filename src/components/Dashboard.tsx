@@ -1,8 +1,9 @@
 import { useCallback, useEffect, useState } from 'react';
 import {
-  BarChart3, Crown, History, Leaf, Loader2, Medal, Recycle, Save, ShieldCheck, Trophy,
+  BarChart3, Crown, History, Leaf, Loader2, Medal, Save, ShieldCheck, Trophy,
 } from 'lucide-react';
 import { categoryMeta } from '@/lib/categoryMeta';
+import EcoBinMark from '@/components/EcoBinMark';
 import {
   getActivityHistory, getActivityStats, getLeaderboard, getTotalPoints,
 } from '@/lib/wasteClassifier';
@@ -55,7 +56,7 @@ export default function Dashboard() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         <ImpactCard icon={<Trophy />} label="Eco points" value={points.toLocaleString()} accent="from-emerald-500 to-teal-600" />
         <ImpactCard icon={<BarChart3 />} label="Accuracy" value={`${accuracy}%`} accent="from-blue-500 to-cyan-600" />
-        <ImpactCard icon={<Recycle />} label="Items sorted" value={stats.total.toString()} accent="from-amber-500 to-orange-600" />
+        <ImpactCard icon={<EcoBinMark className="w-6 h-6" />} label="Items sorted" value={stats.total.toString()} accent="from-amber-500 to-orange-600" />
         <ImpactCard icon={<Leaf />} label="E-waste diverted" value={(stats.byCategory['E-Waste'] * 0.25).toFixed(1) + ' kg*'} accent="from-slate-600 to-slate-800" />
       </div>
 
