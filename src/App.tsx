@@ -79,9 +79,10 @@ export default function App() {
 
       <footer className="border-t border-gray-100 bg-white">
         <div className="max-w-6xl mx-auto px-4 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <div className="flex items-center gap-2 text-sm text-gray-400">
-            <img src={ecoBinMark} alt="" className="w-4 h-4" />
-            <span>EcoBin — Making waste disposal smarter, one item at a time.</span>
+          <div className="flex items-center gap-2.5 text-sm text-gray-400">
+            <img src={ecoBinMark} alt="" className="w-9 h-9" />
+            <span className="font-bold text-lg text-gray-900 tracking-tight">EcoBin</span>
+            <span>Making waste disposal smarter, one item at a time.</span>
           </div>
           <div className="flex items-center gap-4">
             <p className="text-xs text-gray-400 hidden sm:block">Built for a greener tomorrow</p>
