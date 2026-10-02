@@ -1,10 +1,9 @@
 import type { WasteCategory } from './supabase';
-import { Droplets, Cpu, type LucideIcon } from 'lucide-react';
-import EcoBinMark from '@/components/EcoBinMark';
+import { Droplets, Recycle, Cpu, type LucideIcon } from 'lucide-react';
 
 export interface CategoryMeta {
   label: WasteCategory;
-  icon: LucideIcon | typeof EcoBinMark;
+  icon: LucideIcon;
   color: string;
   bgColor: string;
   borderColor: string;
@@ -26,7 +25,7 @@ export const categoryMeta: Record<WasteCategory, CategoryMeta> = {
   },
   'Dry': {
     label: 'Dry',
-    icon: EcoBinMark,
+    icon: Recycle,
     color: 'text-blue-700',
     bgColor: 'bg-blue-50',
     borderColor: 'border-blue-200',

@@ -3,8 +3,9 @@ import { Search, LayoutDashboard, Rocket, Leaf } from 'lucide-react';
 import SearchView from '@/components/SearchView';
 import Dashboard from '@/components/Dashboard';
 import FutureScope from '@/components/FutureScope';
-import EcoBinMark from '@/components/EcoBinMark';
 import { getTotalPoints } from '@/lib/wasteClassifier';
+
+const ecoBinMark = `${import.meta.env.BASE_URL}ecobin-mark.svg`;
 
 type View = 'search' | 'dashboard' | 'future';
 
@@ -36,7 +37,7 @@ export default function App() {
             className="flex items-center gap-2.5 group"
             aria-label="EcoBin home"
           >
-            <EcoBinMark className="w-9 h-9 group-hover:scale-105 transition-transform" />
+            <img src={ecoBinMark} alt="" className="w-9 h-9 group-hover:scale-105 transition-transform" />
             <div className="text-left">
               <span className="font-bold text-lg text-gray-900 tracking-tight">EcoBin</span>
               <span className="hidden sm:inline text-xs text-gray-400 ml-1.5">Smart Waste Assistant</span>
@@ -79,7 +80,7 @@ export default function App() {
       <footer className="border-t border-gray-100 bg-white">
         <div className="max-w-6xl mx-auto px-4 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="flex items-center gap-2.5 text-sm text-gray-400">
-            <EcoBinMark className="w-9 h-9" />
+            <img src={ecoBinMark} alt="" className="w-9 h-9" />
             <span className="font-bold text-lg text-gray-900 tracking-tight">EcoBin</span>
             <span>Making waste disposal smarter, one item at a time.</span>
           </div>
