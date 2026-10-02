@@ -1,11 +1,9 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Search, LayoutDashboard, Rocket, Leaf } from 'lucide-react';
+import { Recycle, Search, LayoutDashboard, Rocket, Leaf } from 'lucide-react';
 import SearchView from '@/components/SearchView';
 import Dashboard from '@/components/Dashboard';
 import FutureScope from '@/components/FutureScope';
 import { getTotalPoints } from '@/lib/wasteClassifier';
-
-const ecoBinMark = `${import.meta.env.BASE_URL}ecobin-mark.svg`;
 
 type View = 'search' | 'dashboard' | 'future';
 
@@ -35,9 +33,10 @@ export default function App() {
           <button
             onClick={() => setView('search')}
             className="flex items-center gap-2.5 group"
-            aria-label="EcoBin home"
           >
-            <img src={ecoBinMark} alt="" className="w-9 h-9 group-hover:scale-105 transition-transform" />
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
+              <Recycle className="w-5 h-5 text-white" />
+            </div>
             <div className="text-left">
               <span className="font-bold text-lg text-gray-900 tracking-tight">EcoBin</span>
               <span className="hidden sm:inline text-xs text-gray-400 ml-1.5">Smart Waste Assistant</span>
@@ -53,8 +52,8 @@ export default function App() {
                   key={item.id}
                   onClick={() => setView(item.id)}
                   className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl text-sm font-medium transition-all ${active
-                    ? 'bg-emerald-50 text-emerald-700'
-                    : 'text-gray-500 hover:bg-gray-100 hover:text-gray-700'
+                      ? 'bg-emerald-50 text-emerald-700'
+                      : 'text-gray-500 hover:bg-gray-100 hover:text-gray-700'
                     }`}
                 >
                   <Icon className="w-4 h-4" />
@@ -80,7 +79,7 @@ export default function App() {
       <footer className="border-t border-gray-100 bg-white">
         <div className="max-w-6xl mx-auto px-4 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="flex items-center gap-2 text-sm text-gray-400">
-            <img src={ecoBinMark} alt="" className="w-4 h-4" />
+            <Recycle className="w-4 h-4 text-emerald-500" />
             <span>EcoBin — Making waste disposal smarter, one item at a time.</span>
           </div>
           <div className="flex items-center gap-4">
