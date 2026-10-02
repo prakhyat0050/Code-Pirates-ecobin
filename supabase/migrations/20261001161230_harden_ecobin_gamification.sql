@@ -17,3 +17,7 @@
 
 REVOKE INSERT, UPDATE, DELETE ON waste_items FROM anon, authenticated;
 REVOKE UPDATE, DELETE ON user_activity FROM anon, authenticated;
+
+GRANT USAGE ON SCHEMA public TO anon, authenticated;
+GRANT SELECT ON TABLE public.waste_items TO anon, authenticated;
+GRANT SELECT, INSERT ON TABLE public.user_activity TO anon, authenticated;
