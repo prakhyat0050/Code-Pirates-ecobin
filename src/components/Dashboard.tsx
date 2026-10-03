@@ -20,14 +20,27 @@ export default function Dashboard() {
 
   const loadDashboard = useCallback(async () => {
     setLoading(true);
-    const [pts, hist, sts, board] = await Promise.all([
-      getTotalPoints(), getActivityHistory(20), getActivityStats(), getLeaderboard(),
-    ]);
-    setPoints(pts);
-    setHistory(hist);
-    setStats(sts);
-    setLeaderboard(board);
-    setLoading(false);
+
+    try {
+      const [pts, hist, sts, board] = await Promise.allSettled([
+        getTotalPoints(),
+        getActivityHistory(20),
+        getActivityStats(),
+        getLeaderboard(),
+      ]);
+
+      setPoints(pts.status === 'fulfilled' ? pts.value : 0);
+      setHistory(hist.status === 'fulfilled' ? hist.value : []);
+      setStats(sts.status === 'fulfilled' ? sts.value : { total: 0, correct: 0, byCategory: { Wet: 0, Dry: 0, 'E-Waste': 0 } });
+      setLeaderboard(board.status === 'fulfilled' ? board.value : []);
+    } catch {
+      setPoints(0);
+      setHistory([]);
+      setStats({ total: 0, correct: 0, byCategory: { Wet: 0, Dry: 0, 'E-Waste': 0 } });
+      setLeaderboard([]);
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
   useEffect(() => { loadDashboard(); }, [loadDashboard]);
