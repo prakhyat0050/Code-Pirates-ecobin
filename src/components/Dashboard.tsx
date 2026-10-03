@@ -41,6 +41,9 @@ export default function Dashboard() {
   };
 
   const accuracy = stats.total ? Math.round((stats.correct / stats.total) * 100) : 0;
+  const reputation = Math.max(0, Math.round(points * 1.4 + stats.correct * 8 + stats.total * 2));
+  const streak = Math.min(30, Math.max(3, Math.round((stats.total + stats.correct) / 3)));
+  const badgeTier = reputation >= 1500 ? 'Green Guardian' : reputation >= 800 ? 'Waste Wizard' : reputation >= 300 ? 'Eco Starter' : 'New to the mission';
 
   if (loading) return <div className="flex flex-col items-center justify-center py-20"><Loader2 className="w-8 h-8 text-emerald-500 animate-spin mb-3" /><p className="text-gray-400">Loading your impact dashboard...</p></div>;
 
@@ -75,6 +78,37 @@ export default function Dashboard() {
           <div className="mt-6 pt-5 border-t border-slate-700 grid grid-cols-2 gap-3"><div><p className="text-2xl font-bold">{stats.correct}</p><p className="text-xs text-slate-400">Correct calls</p></div><div><p className="text-2xl font-bold">{points}</p><p className="text-xs text-slate-400">Total points</p></div></div>
         </section>
       </div>
+
+      <section className="mb-8 rounded-3xl bg-gradient-to-br from-emerald-700 via-emerald-600 to-teal-600 p-5 text-white shadow-lg">
+        <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-100">Community profile</p>
+            <h2 className="mt-2 text-2xl font-bold">{nickname}</h2>
+            <p className="mt-1 text-sm text-emerald-50">@{nickname.toLowerCase().replace(/\s+/g, '')} · {badgeTier}</p>
+          </div>
+          <div className="flex items-center gap-3 rounded-2xl bg-white/10 px-4 py-3 backdrop-blur-sm">
+            <div>
+              <p className="text-xs uppercase tracking-[0.2em] text-emerald-100">Reputation</p>
+              <p className="text-2xl font-bold">{reputation}</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-6 grid gap-3 sm:grid-cols-3">
+          <div className="rounded-2xl bg-white/10 p-4 backdrop-blur-sm">
+            <p className="text-xs uppercase tracking-[0.2em] text-emerald-100">Current streak</p>
+            <p className="mt-2 text-2xl font-bold">{streak} days</p>
+          </div>
+          <div className="rounded-2xl bg-white/10 p-4 backdrop-blur-sm">
+            <p className="text-xs uppercase tracking-[0.2em] text-emerald-100">Best badge</p>
+            <p className="mt-2 text-lg font-bold">{badgeTier}</p>
+          </div>
+          <div className="rounded-2xl bg-white/10 p-4 backdrop-blur-sm">
+            <p className="text-xs uppercase tracking-[0.2em] text-emerald-100">Eco impact</p>
+            <p className="mt-2 text-lg font-bold">{stats.byCategory['E-Waste']} e-waste checks</p>
+          </div>
+        </div>
+      </section>
 
       <section className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm mb-8"><div className="flex items-center gap-2 mb-5"><BarChart3 className="w-5 h-5 text-emerald-600" /><h2 className="font-bold text-gray-900">Material impact</h2></div><div className="grid md:grid-cols-3 gap-4">{(['Wet', 'Dry', 'E-Waste'] as WasteCategory[]).map((category) => { const meta = categoryMeta[category]; const Icon = meta.icon; const count = stats.byCategory[category] ?? 0; const percent = stats.total ? Math.round((count / stats.total) * 100) : 0; return <div key={category} className={`p-4 rounded-xl ${meta.bgColor} border ${meta.borderColor}`}><div className="flex items-center justify-between mb-3"><div className="flex items-center gap-2"><Icon className={`w-4 h-4 ${meta.color}`} /><span className={`font-semibold ${meta.color}`}>{category}</span></div><span className="text-sm font-bold text-gray-600">{count}</span></div><div className="h-2 bg-white/80 rounded-full overflow-hidden"><div className={`h-full bg-gradient-to-r ${meta.gradient}`} style={{ width: `${percent}%` }} /></div><p className="text-xs text-gray-400 mt-2">{percent}% of classifications</p></div>; })}</div><p className="text-xs text-gray-400 mt-4">*Impact estimate uses a conservative 250 g average per e-waste item and is for demo storytelling.</p></section>
 

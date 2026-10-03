@@ -43,28 +43,34 @@ export default function App() {
             </div>
           </button>
 
-          <div className="flex items-center gap-1 sm:gap-2">
-            {navItems.map((item) => {
-              const Icon = item.icon;
-              const active = view === item.id;
-              return (
-                <button
-                  key={item.id}
-                  onClick={() => setView(item.id)}
-                  className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl text-sm font-medium transition-all ${active
+          <div className="flex items-center gap-3">
+            <div className="hidden md:flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-emerald-700 shadow-sm">
+              Built with Vakh
+            </div>
+
+            <div className="flex items-center gap-1 sm:gap-2">
+              {navItems.map((item) => {
+                const Icon = item.icon;
+                const active = view === item.id;
+                return (
+                  <button
+                    key={item.id}
+                    onClick={() => setView(item.id)}
+                    className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl text-sm font-medium transition-all ${active
                       ? 'bg-emerald-50 text-emerald-700'
                       : 'text-gray-500 hover:bg-gray-100 hover:text-gray-700'
-                    }`}
-                >
-                  <Icon className="w-4 h-4" />
-                  <span className="hidden sm:inline">{item.label}</span>
-                </button>
-              );
-            })}
+                      }`}
+                  >
+                    <Icon className="w-4 h-4" />
+                    <span className="hidden sm:inline">{item.label}</span>
+                  </button>
+                );
+              })}
 
-            <div className="flex items-center gap-1.5 ml-2 pl-3 border-l border-gray-100">
-              <Leaf className="w-4 h-4 text-emerald-500" />
-              <span className="text-sm font-bold text-gray-700 tabular-nums">{totalPoints.toLocaleString()}</span>
+              <div className="flex items-center gap-1.5 ml-2 pl-3 border-l border-gray-100">
+                <Leaf className="w-4 h-4 text-emerald-500" />
+                <span className="text-sm font-bold text-gray-700 tabular-nums">{totalPoints.toLocaleString()}</span>
+              </div>
             </div>
           </div>
         </div>
@@ -80,13 +86,13 @@ export default function App() {
         <div className="max-w-6xl mx-auto px-4 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="flex items-center gap-2 text-sm text-gray-400">
             <Recycle className="w-4 h-4 text-emerald-500" />
-            <span>EcoBin — Making waste disposal smarter, one item at a time.</span>
+            <span>EcoBin x Vakh — Making waste disposal smarter, one item at a time.</span>
           </div>
           <div className="flex items-center gap-4">
             <p className="text-xs text-gray-400 hidden sm:block">Built for a greener tomorrow</p>
           </div>
         </div>
       </footer>
-    </div>
+    </div >
   );
 }
