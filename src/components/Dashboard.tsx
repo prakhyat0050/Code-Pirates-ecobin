@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import {
-  BarChart3, Crown, History, Leaf, Loader2, Medal, Recycle, Save, ShieldCheck, Trophy,
+  ArrowUpRight, BarChart3, Crown, History, Leaf, Loader2, Medal, Recycle, Save, ShieldCheck, Trophy,
 } from 'lucide-react';
 import { categoryMeta } from '@/lib/categoryMeta';
 import {
@@ -67,6 +67,23 @@ export default function Dashboard() {
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Your impact dashboard</h1>
         <p className="text-gray-500">Turn everyday sorting into visible progress for a cleaner India.</p>
       </div>
+
+      <section className="mb-8 flex flex-col gap-4 border-y border-emerald-200 bg-emerald-50/70 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-700">Vakh form</p>
+          <h2 className="mt-1 font-semibold text-gray-900">Continue the EcoBin community on Vakh</h2>
+          <p className="mt-1 text-sm text-gray-600">Open our Vakh-hosted project form.</p>
+        </div>
+        <a
+          href="https://vakh.com/form/262bfd12-55e4-4df1-be90-0ce9eaabcf33"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg bg-emerald-700 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-emerald-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2"
+        >
+          Open Vakh form
+          <ArrowUpRight className="h-4 w-4" />
+        </a>
+      </section>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         <ImpactCard icon={<Trophy />} label="Eco points" value={points.toLocaleString()} accent="from-emerald-500 to-teal-600" />
