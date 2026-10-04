@@ -71,8 +71,8 @@ export default function Dashboard() {
       <section className="mb-8 flex flex-col gap-4 border-y border-emerald-200 bg-emerald-50/70 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-700">Vakh community</p>
-          <h2 className="mt-1 font-semibold text-gray-900">Follow EcoBin updates on Vakh</h2>
-          <p className="mt-1 text-sm text-gray-600">View the EcoBin posts feed and subscribe on Vakh.</p>
+          <h2 className="mt-1 font-semibold text-gray-900">Take part in the EcoBin community on Vakh</h2>
+          <p className="mt-1 text-sm text-gray-600">Follow updates, explore the badge, or share feedback through Vakh.</p>
         </div>
         <div className="flex flex-wrap gap-2">
           <a
@@ -91,6 +91,15 @@ export default function Dashboard() {
             className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-emerald-300 bg-white px-4 py-2.5 text-sm font-semibold text-emerald-800 transition-colors hover:bg-emerald-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2"
           >
             EcoBin Vakh badge
+            <ArrowUpRight className="h-4 w-4" />
+          </a>
+          <a
+            href="https://vakh.com/form/p2h9"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-emerald-300 bg-white px-4 py-2.5 text-sm font-semibold text-emerald-800 transition-colors hover:bg-emerald-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2"
+          >
+            Give feedback
             <ArrowUpRight className="h-4 w-4" />
           </a>
         </div>
