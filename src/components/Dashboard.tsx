@@ -74,15 +74,26 @@ export default function Dashboard() {
           <h2 className="mt-1 font-semibold text-gray-900">Follow EcoBin updates on Vakh</h2>
           <p className="mt-1 text-sm text-gray-600">View the EcoBin posts feed and subscribe on Vakh.</p>
         </div>
-        <a
-          href="https://vakh.com/form/262bfd12-55e4-4df1-be90-0ce9eaabcf33"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg bg-emerald-700 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-emerald-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2"
-        >
-          View posts & subscribe
-          <ArrowUpRight className="h-4 w-4" />
-        </a>
+        <div className="flex flex-wrap gap-2">
+          <a
+            href="https://vakh.com/form/262bfd12-55e4-4df1-be90-0ce9eaabcf33"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg bg-emerald-700 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-emerald-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2"
+          >
+            View posts & subscribe
+            <ArrowUpRight className="h-4 w-4" />
+          </a>
+          <a
+            href="https://vakh.com/badge/iwce"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-emerald-300 bg-white px-4 py-2.5 text-sm font-semibold text-emerald-800 transition-colors hover:bg-emerald-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2"
+          >
+            EcoBin Vakh badge
+            <ArrowUpRight className="h-4 w-4" />
+          </a>
+        </div>
       </section>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
