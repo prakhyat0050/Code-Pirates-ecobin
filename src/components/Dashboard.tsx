@@ -70,9 +70,9 @@ export default function Dashboard() {
 
       <section className="mb-8 flex flex-col gap-4 border-y border-emerald-200 bg-emerald-50/70 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-700">Vakh form</p>
-          <h2 className="mt-1 font-semibold text-gray-900">Continue the EcoBin community on Vakh</h2>
-          <p className="mt-1 text-sm text-gray-600">Open our Vakh-hosted project form.</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-700">Vakh community</p>
+          <h2 className="mt-1 font-semibold text-gray-900">Follow EcoBin updates on Vakh</h2>
+          <p className="mt-1 text-sm text-gray-600">View the EcoBin posts feed and subscribe on Vakh.</p>
         </div>
         <a
           href="https://vakh.com/form/262bfd12-55e4-4df1-be90-0ce9eaabcf33"
@@ -80,7 +80,7 @@ export default function Dashboard() {
           rel="noopener noreferrer"
           className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg bg-emerald-700 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-emerald-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2"
         >
-          Open Vakh form
+          View posts & subscribe
           <ArrowUpRight className="h-4 w-4" />
         </a>
       </section>
